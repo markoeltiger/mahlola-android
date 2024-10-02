@@ -4,30 +4,62 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
+import androidx.compose.animation.Crossfade
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import com.mark.mahlola.features.onboarding.OnBoardingScreen
+
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.mark.mahlola.features.root.domain.AuthState
 import com.mark.mahlola.ui.theme.MahlolaTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private val viewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        installSplashScreen().setKeepOnScreenCondition {
+            viewModel.authState.value == AuthState.UNKNOWN
+        }
+        actionBar?.hide()
         setContent {
             MahlolaTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Crossfade(targetState = viewModel.authState.value, label = "scene") { state ->
+                    when(state) {
+                        AuthState.ONBOARDING -> {
+                            OnBoardingScreen(
+                                viewModel = hiltViewModel(),
+                                goToAuth = {
+                                    viewModel.setAuthState(AuthState.UNAUTHENTICATED)
+                                }
+                            )
+                        }
+                        AuthState.UNAUTHENTICATED -> {
+//                            LoginScreen(viewModel = hiltViewModel()) {
+//                                viewModel.setAuthState(AuthState.AUTHENTICATED)
+//                            }
+                        }
+                        AuthState.AUTHENTICATED -> {
+                         //   MainScreen()
+                        }
+                        else -> {
+                            Scaffold {
+                                Box(modifier = Modifier.padding(it))
+                            }
+                        }
+                    }
                 }
-            }
         }
     }
 }
@@ -46,4 +78,4 @@ fun GreetingPreview() {
     MahlolaTheme {
         Greeting("Android")
     }
-}
+}}
