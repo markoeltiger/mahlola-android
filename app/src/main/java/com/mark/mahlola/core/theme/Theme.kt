@@ -1,6 +1,5 @@
-package com.mark.mahlola.ui.theme
+package com.mark.mahlola.core.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -10,15 +9,50 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import com.mark.mahlola.R
+import com.mark.mahlola.ui.theme.Typography
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
     tertiary = Pink80
 )
+  val appBoldFontFamily = FontFamily(
+    fonts = listOf(
+        Font(
+            resId = R.font.poppins_bold,
+            weight = FontWeight.W900,
+            style = FontStyle.Normal
+        ),
+        Font(
+            resId = R.font.poppins_medium,
+            weight = FontWeight.W900,
+            style = FontStyle.Italic
+        ),
+        Font(
+            resId = R.font.poppins_regular,
+            weight = FontWeight.W700,
+            style = FontStyle.Normal
+        ),
+
+)
+)
+val appReguralFontFamily = FontFamily(
+    fonts = listOf(
+        Font(
+            resId = R.font.poppins_regular,
+            weight = FontWeight.W700,
+            style = FontStyle.Normal
+        )
+        )
+)
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
+    primary = BACKGROUND_COLOR,
     secondary = PurpleGrey40,
     tertiary = Pink40
 
@@ -40,6 +74,7 @@ fun MahlolaTheme(
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
+
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
