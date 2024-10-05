@@ -78,5 +78,6 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
     //Data Store
     implementation(libs.datastore.preferences)
-
+    //Lottie
+    implementation(libs.lottie)
 }
