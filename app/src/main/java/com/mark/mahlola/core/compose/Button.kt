@@ -19,10 +19,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mark.mahlola.R
+import com.mark.mahlola.core.theme.appReguralFontFamily
+import com.mark.mahlola.core.theme.gradientStartColor
 import com.mark.mahlola.core.ui.ThemedPreview
 
 @Composable
@@ -33,9 +36,10 @@ fun FilledButton(
 ) = Button(
     modifier = modifier,
     shape = MaterialTheme.shapes.small,
-    onClick = onClick
+    onClick = onClick,
+    colors = ButtonDefaults.buttonColors(gradientStartColor),
 ) {
-    Text(text = text)
+    Text(text = text, fontFamily = appReguralFontFamily, color = Color.White)
 }
 
 @Composable
