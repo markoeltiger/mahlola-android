@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -75,7 +76,7 @@ fun OnBoardingScreen(
         ) {
             Pager(state = state)
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().padding(60.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
@@ -85,6 +86,8 @@ fun OnBoardingScreen(
                 ) {
                     Text(
                         text = stringResource(id = R.string.skip),
+                        fontFamily = appReguralFontFamily,
+                        color = Color.Black
                     )
                 }
                 val text =
@@ -154,6 +157,7 @@ fun ColumnScope.Pager(state: OnboardingState) {
                 textAlign = TextAlign.Center,
                 fontFamily = appReguralFontFamily,
                 text = pageUiState.description,
+                color = colorResource(id =R.color.black),
                 style = MaterialTheme.typography.bodyMedium,
             )
 
