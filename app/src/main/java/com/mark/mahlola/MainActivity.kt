@@ -20,6 +20,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.mark.mahlola.core.theme.BACKGROUND_COLOR
 import com.mark.mahlola.features.root.domain.AuthState
 import com.mark.mahlola.core.theme.MahlolaTheme
+import com.mark.mahlola.features.auth.ui.LoginScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -53,9 +54,9 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         AuthState.UNAUTHENTICATED -> {
-//                            LoginScreen(viewModel = hiltViewModel()) {
-//                                viewModel.setAuthState(AuthState.AUTHENTICATED)
-//                            }
+                            LoginScreen(viewModel = hiltViewModel()) {
+                                viewModel.setAuthState(AuthState.AUTHENTICATED)
+                            }
                         }
                         AuthState.AUTHENTICATED -> {
                          //   MainScreen()
