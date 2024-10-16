@@ -15,6 +15,10 @@ daggerHilt="2.48.1"
 hiltNavigationCompose="1.1.0"
 dataStoreVersion="1.1.1"
 lottieVersion="0.5.0"
+firebasePlatform = "33.4.0"
+firebaseAuthKtx = "21.0.0"
+gmsVersion="4.4.2"
+detekt="1.23.7"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -37,9 +41,13 @@ hilt-compiler={group="com.google.dagger",name="hilt-compiler",version.ref="dagge
 hilt-navigation-compose={group="androidx.hilt",name="hilt-navigation-compose",version.ref="hiltNavigationCompose"}
 datastore-preferences={group="androidx.datastore",name="datastore-preferences",version.ref="dataStoreVersion"}
 lottie={group="com.github.LottieFiles" ,name="dotlottie-android",version.ref="lottieVersion"}
+firebase-platform={group="com.google.firebase",name="firebase-bom",version.ref="firebasePlatform"}
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
+country-picker={group="com.github.arpitkatiyar1999",name="Country-Picker",version="1.0.3"}
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 dagger-hilt-android={ id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
 org-jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "org-jetbrains-kotlin-android" }
-
+google-services={id="com.google.gms.google-services" , version.ref="gmsVersion"}
+detekt={id="io.gitlab.arturbosch.detekt",version.ref="detekt"}
