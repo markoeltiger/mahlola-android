@@ -7,7 +7,8 @@ import kotlinx.coroutines.withContext
 interface SignInWithPhone : UseCase<User, SignInWithPhone.Params> {
     data class Params(
         val countryCode: String,
-        val phoneNumber: String)
+        val phoneNumber: String
+    )
 }
 
 class SignInWithPhoneImpl(

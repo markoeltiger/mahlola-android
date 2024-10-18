@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "398528907605",
+    "project_id": "mahlola-f0302",
+    "storage_bucket": "mahlola-f0302.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398528907605:android:c37fd40075633dcd7847dc",
+        "android_client_info": {
+          "package_name": "com.mark.mahlola"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaaPmC9fUy04oWc39r05dwa4bb9N-SCjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

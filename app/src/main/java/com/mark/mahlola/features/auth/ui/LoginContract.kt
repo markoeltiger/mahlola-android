@@ -8,7 +8,7 @@ import com.mark.mahlola.core.base.MviViewState
 import javax.inject.Inject
 
 sealed class LoginAction : MviAction {
-    data class SignInClick(val email: String, val password: String) : LoginAction()
+    data class SignInClick(val phone: String) : LoginAction()
 }
 
 sealed class LoginResult : MviResult {
