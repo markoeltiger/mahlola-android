@@ -1,9 +1,10 @@
 package com.mark.mahlola.features.root.domain
 
+import com.mark.mahlola.core.base.NormalUseCase
 import com.mark.mahlola.core.base.UseCase
 
 
-interface UpdateAuthState : UseCase<Unit, UpdateAuthState.Params> {
+interface UpdateAuthState : NormalUseCase<Unit, UpdateAuthState.Params> {
     data class Params(val authState: AuthState)
 }
 

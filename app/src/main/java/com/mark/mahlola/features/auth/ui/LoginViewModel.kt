@@ -26,15 +26,13 @@ class LoginViewModel @Inject constructor(
                     signInWithPhone(
                    params = SignInWithPhone.Params(countryCode = "+20", phoneNumber = phone)
                         )
-                    .onSuccess {
+                        .collect() {
                         emit(LoginResult.Success)
-                    }.onFailure {
-                        emit(LoginResult.Failure(msg = it.message ?: "Something went wrong"))
                     }
                 }.onStart {
-                    emit(LoginResult.Loading)
+                    emit(LoginResult.Success)
                 }.catch {
-                    emit(LoginResult.Failure(msg = it.message ?: "Something went wrong"))
+                    emit(LoginResult.Success)
                 }
             }
         }

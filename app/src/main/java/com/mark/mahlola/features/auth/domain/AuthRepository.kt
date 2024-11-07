@@ -1,5 +1,7 @@
 package com.mark.mahlola.features.auth.domain
 
+import kotlinx.coroutines.flow.Flow
+
 interface AuthRepository {
     suspend fun signIn(
         email: String,
@@ -9,7 +11,7 @@ interface AuthRepository {
     suspend fun signInWithPhoneNumber(
         countryCode: String,
         phoneNumber: String,
-    ): Result<User>
+    ): Flow<Result<Boolean>>
 
     suspend fun signOut(): Result<Boolean>
 }

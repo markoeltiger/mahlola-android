@@ -1,5 +1,6 @@
 package com.waseem.libroom.feature.auth.di
 
+import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.mark.mahlola.features.auth.data.AuthRepositoryImpl
 import com.mark.mahlola.features.auth.domain.AuthRepository
@@ -13,6 +14,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineDispatcher
 
 @InstallIn(ViewModelComponent::class)
@@ -20,8 +22,8 @@ import kotlinx.coroutines.CoroutineDispatcher
 object AuthModule {
 
     @Provides
-    fun provideAuthRepository(firebaseAuth: FirebaseAuth): AuthRepository {
-        return AuthRepositoryImpl(firebaseAuth = firebaseAuth)
+    fun provideAuthRepository(@ApplicationContext  context: Context, firebaseAuth: FirebaseAuth): AuthRepository {
+        return AuthRepositoryImpl(context,firebaseAuth = firebaseAuth)
     }
 
     @Provides

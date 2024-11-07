@@ -1,10 +1,11 @@
 package com.mark.mahlola.features.auth.domain
 
+import com.mark.mahlola.core.base.NormalUseCase
 import com.mark.mahlola.core.base.UseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 
-interface SignInWithEmailPassword : UseCase<User, SignInWithEmailPassword.Params> {
+interface SignInWithEmailPassword : NormalUseCase<User, SignInWithEmailPassword.Params> {
     data class Params(
         val email: String,
         val password: String)
