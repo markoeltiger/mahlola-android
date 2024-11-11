@@ -1,5 +1,6 @@
 package com.mark.mahlola
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
@@ -13,13 +14,16 @@ import androidx.compose.material3.Scaffold
 import com.mark.mahlola.features.onboarding.OnBoardingScreen
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.mark.mahlola.core.theme.BACKGROUND_COLOR
 import com.mark.mahlola.features.root.domain.AuthState
 import com.mark.mahlola.core.theme.MahlolaTheme
+import com.mark.mahlola.core.theme.gradientStartColor
 import com.mark.mahlola.features.auth.ui.LoginScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,22 +33,26 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge( statusBarStyle = SystemBarStyle.auto(
-            BACKGROUND_COLOR.value.toInt(),
-            BACKGROUND_COLOR.value.toInt()
-        ),
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.auto(
+                BACKGROUND_COLOR.value.toInt(),
+                BACKGROUND_COLOR.value.toInt()
+            ),
             navigationBarStyle = SystemBarStyle.auto(
                 BACKGROUND_COLOR.value.toInt(),
                 BACKGROUND_COLOR.value.toInt()
-            ))
+            )
+        )
         installSplashScreen().setKeepOnScreenCondition {
             viewModel.authState.value == AuthState.UNKNOWN
         }
         actionBar?.hide()
         setContent {
             MahlolaTheme {
+                SetBarColor(gradientStartColor)
+
                 Crossfade(targetState = viewModel.authState.value, label = "scene") { state ->
-                    when(state) {
+                    when (state) {
                         AuthState.ONBOARDING -> {
                             OnBoardingScreen(
                                 viewModel = hiltViewModel(),
@@ -53,14 +61,17 @@ class MainActivity : ComponentActivity() {
                                 }
                             )
                         }
+
                         AuthState.UNAUTHENTICATED -> {
                             LoginScreen(viewModel = hiltViewModel()) {
                                 viewModel.setAuthState(AuthState.AUTHENTICATED)
                             }
                         }
+
                         AuthState.AUTHENTICATED -> {
-                         //   MainScreen()
+                            //   MainScreen()
                         }
+
                         else -> {
                             Scaffold {
                                 Box(modifier = Modifier.padding(it))
@@ -68,22 +79,22 @@ class MainActivity : ComponentActivity() {
                         }
                     }
                 }
+            }
+        }
+    }
+
+    @Composable
+    private fun SetBarColor(color: androidx.compose.ui.graphics.Color) {
+        val systemUIController = rememberSystemUiController()
+        SideEffect {
+            systemUIController.setSystemBarsColor(color = color)
+        }
+    }
+
+    @Preview(showBackground = true)
+    @Composable
+    fun GreetingPreview() {
+        MahlolaTheme {
         }
     }
 }
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MahlolaTheme {
-        Greeting("Android")
-    }
-}}

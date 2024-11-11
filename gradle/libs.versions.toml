@@ -19,6 +19,7 @@ firebasePlatform = "33.4.0"
 firebaseAuthKtx = "21.0.0"
 gmsVersion="4.4.2"
 detekt="1.23.7"
+systemuiController="0.23.1"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -44,6 +45,9 @@ lottie={group="com.github.LottieFiles" ,name="dotlottie-android",version.ref="lo
 firebase-platform={group="com.google.firebase",name="firebase-bom",version.ref="firebasePlatform"}
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 country-picker={group="com.github.arpitkatiyar1999",name="Country-Picker",version="1.0.3"}
+accompanist-systemuicontroller={group="com.google.accompanist",name="accompanist-systemuicontroller",version.ref="systemuiController"}
+material-icons-extended={group="androidx.compose.material",name="material-icons-extended",version.ref="activityCompose"}
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

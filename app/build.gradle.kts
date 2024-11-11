@@ -86,6 +86,9 @@ dependencies {
     implementation(libs.lottie)
     //Country Picker
     implementation(libs.country.picker)
+    //Compose Utils
+    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.material.icons.extended)
 }
 detekt {
     // Version of detekt that will be used. When unspecified the latest detekt
