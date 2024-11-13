@@ -19,6 +19,7 @@ firebasePlatform = "33.4.0"
 firebaseAuthKtx = "21.0.0"
 gmsVersion="4.4.2"
 detekt="1.23.7"
+iconsExtended="1.7.5"
 systemuiController="0.23.1"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -46,7 +47,7 @@ firebase-platform={group="com.google.firebase",name="firebase-bom",version.ref="
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 country-picker={group="com.github.arpitkatiyar1999",name="Country-Picker",version="1.0.3"}
 accompanist-systemuicontroller={group="com.google.accompanist",name="accompanist-systemuicontroller",version.ref="systemuiController"}
-material-icons-extended={group="androidx.compose.material",name="material-icons-extended",version.ref="activityCompose"}
+material-icons-extended={group="androidx.compose.material",name="material-icons-extended",version.ref="iconsExtended"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -25,6 +25,7 @@ import com.mark.mahlola.features.root.domain.AuthState
 import com.mark.mahlola.core.theme.MahlolaTheme
 import com.mark.mahlola.core.theme.gradientStartColor
 import com.mark.mahlola.features.auth.ui.LoginScreen
+import com.mark.mahlola.features.home.ui.HomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -63,9 +64,10 @@ class MainActivity : ComponentActivity() {
                         }
 
                         AuthState.UNAUTHENTICATED -> {
-                            LoginScreen(viewModel = hiltViewModel()) {
-                                viewModel.setAuthState(AuthState.AUTHENTICATED)
-                            }
+                            HomeScreen(homeViewModel = hiltViewModel())
+//                            LoginScreen(viewModel = hiltViewModel()) {
+//                                viewModel.setAuthState(AuthState.AUTHENTICATED)
+//                            }
                         }
 
                         AuthState.AUTHENTICATED -> {
