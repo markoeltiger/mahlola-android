@@ -25,8 +25,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mark.mahlola.R
 import com.mark.mahlola.core.theme.appReguralFontFamily
-import com.mark.mahlola.core.theme.gradientStartColor
 import com.mark.mahlola.core.ui.ThemedPreview
+import com.mark.mahlola.core.ui.theme.LightColors.gradientStartColor
 
 @Composable
 fun FilledButton(

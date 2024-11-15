@@ -14,6 +14,12 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import com.mark.mahlola.R
+import com.mark.mahlola.core.ui.theme.LightColors.BACKGROUND_COLOR
+import com.mark.mahlola.core.ui.theme.LightColors.Pink40
+import com.mark.mahlola.core.ui.theme.LightColors.Pink80
+import com.mark.mahlola.core.ui.theme.LightColors.Purple80
+import com.mark.mahlola.core.ui.theme.LightColors.PurpleGrey40
+import com.mark.mahlola.core.ui.theme.LightColors.PurpleGrey80
 import com.mark.mahlola.ui.theme.Typography
 
 private val DarkColorScheme = darkColorScheme(

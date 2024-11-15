@@ -48,10 +48,10 @@ import com.mark.mahlola.core.base.collectState
 import com.mark.mahlola.core.compose.FilledButton
 import com.mark.mahlola.core.theme.appBoldFontFamily
 import com.mark.mahlola.core.theme.appReguralFontFamily
-import com.mark.mahlola.core.theme.gradientEndColor
-import com.mark.mahlola.core.theme.gradientMiddleColor
-import com.mark.mahlola.core.theme.gradientStartColor
 import com.mark.mahlola.core.ui.ThemedPreview
+import com.mark.mahlola.core.ui.theme.LightColors.gradientEndColor
+import com.mark.mahlola.core.ui.theme.LightColors.gradientMiddleColor
+import com.mark.mahlola.core.ui.theme.LightColors.gradientStartColor
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable

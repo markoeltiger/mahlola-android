@@ -20,10 +20,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.mark.mahlola.core.theme.BACKGROUND_COLOR
 import com.mark.mahlola.features.root.domain.AuthState
 import com.mark.mahlola.core.theme.MahlolaTheme
-import com.mark.mahlola.core.theme.gradientStartColor
+import com.mark.mahlola.core.ui.theme.LightColors.BACKGROUND_COLOR
+import com.mark.mahlola.core.ui.theme.LightColors.gradientStartColor
 import com.mark.mahlola.features.auth.ui.LoginScreen
 import com.mark.mahlola.features.home.ui.HomeScreen
 import dagger.hilt.android.AndroidEntryPoint

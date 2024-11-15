@@ -12,17 +12,20 @@ import androidx.compose.material.icons.rounded.Notifications
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.mark.mahlola.core.ui.theme.LightColors.background
+import com.mark.mahlola.core.ui.theme.LightColors.gradientMiddleColor
+import com.mark.mahlola.core.ui.theme.LightColors.gradientStartColor
 import com.mark.mahlola.core.ui.theme.LightColors.primaryContainer
 
 val items=listOf(BottomNavigationItem("Home",Icons.Rounded.Home), BottomNavigationItem("Wallet",Icons.Rounded.List), BottomNavigationItem("Notifications",Icons.Rounded.Notifications),BottomNavigationItem("Account",Icons.Rounded.AccountCircle))
 @Composable
 fun BottomNavigationBar(){
     NavigationBar {
-        Row (modifier = Modifier.background(background)){
+        Row (modifier = Modifier.background(gradientStartColor)){
             items.forEachIndexed { index, bottomNavigationItem ->
                 NavigationBarItem(selected =index==0
                     , onClick ={}
@@ -30,9 +33,10 @@ fun BottomNavigationBar(){
                         Icon(
                             imageVector = bottomNavigationItem.icon,
                             contentDescription = bottomNavigationItem.title,
-                            tint = primaryContainer
+                            tint = gradientMiddleColor
                         )
                     }
+                    , label = {Text(bottomNavigationItem.title)}
                 )
             }
         }

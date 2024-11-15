@@ -29,8 +29,10 @@ fun HomeScreen(
 
 @Composable
 fun HomeScreenContent(it: PaddingValues) {
-     Column (modifier = Modifier.fillMaxSize().padding(paddingValues = it)){
-
+     Column (modifier = Modifier
+         .fillMaxSize()
+         .padding(paddingValues = it)){
+            WalletSection()
      }
 }
 
