@@ -33,6 +33,7 @@ fun HomeScreenContent(it: PaddingValues) {
          .fillMaxSize()
          .padding(paddingValues = it)){
             WalletSection()
+            CardsSection()
      }
 }
 

@@ -1,5 +1,6 @@
 package com.mark.mahlola.core.ui.theme
 
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 object LightColors {
@@ -43,4 +44,8 @@ object LightColors {
     val outline = Color(0xFF74777F)
     val outlineVariant = Color(0xFFC4C6D0)
     val scrim = Color(0xFF000000)
+}
+fun getGradient(startColor: Color,
+                endColor: Color):Brush{
+return Brush.horizontalGradient(colors = listOf(startColor,endColor))
 }
