@@ -89,6 +89,9 @@ dependencies {
     //Compose Utils
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.material.icons.extended)
+    //coil
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
 }
 detekt {
     // Version of detekt that will be used. When unspecified the latest detekt
